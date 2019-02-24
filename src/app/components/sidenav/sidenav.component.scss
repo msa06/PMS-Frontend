@@ -1,5 +1,10 @@
 a {
+  color:#aaa;
+}
+.navbar-brand{
   color:white;
+  font-size:30px;
+  font-weight: bolder;
 }
 .sidebar {
   height: 100%;
@@ -19,4 +24,8 @@ hr{
   background:#888;
   position: relative;
   left:-5px;
+}
+.active{
+  font-weight: bold;
+  color:rgb(40, 137, 247);
 }
