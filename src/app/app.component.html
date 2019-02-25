@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-  <div class="row">
+<!-- <div class="row">
       <div class="col-2">
           <app-sidenav></app-sidenav>
       </div>
@@ -9,5 +9,28 @@
                 <router-outlet></router-outlet>
             </div>
         </div>
-  </div>   
-<!-- </div> -->
+  </div>    -->
+<mat-drawer-container class="matContainer" autoSize>
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+        <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <div class="sidenav-content">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>Title</span>
+                <span class="spacer"></span>
+                <mat-icon class="mx-2">notification_important</mat-icon>
+                <mat-icon class="mx-2">account_circle</mat-icon>          
+                <!-- <app-navbar></app-navbar> -->
+            </mat-toolbar-row>
+            
+        </mat-toolbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+        
+    </div>
+</mat-drawer-container>

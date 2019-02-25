@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WorkorderComponent } from './components/workorder/workorder.component';
+
 import { AssetsComponent } from './components/assets/assets.component';
+import { WorkorderModule } from './workorder/workorder.module';
 
 const routes: Routes = [
-  {path:'workorder',component:WorkorderComponent},
-  {path:'assets',component:AssetsComponent}
+  {path:'assets',component:AssetsComponent},
+  {
+    path:'workorder',
+    loadChildren:'./workorder/workorder.module#WorkorderModule'
+  },
+  {
+    path:'',
+    redirectTo:'workorder',
+    pathMatch:'full'
+  }
 ];
 
 @NgModule({
