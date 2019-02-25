@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog } from '@angular/material';
+import { WorkorderAddComponent } from '../../workorder-add/workorder-add.component';
 
 @Component({
   selector: 'app-workorder-menu',
@@ -8,7 +9,18 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class WorkorderMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  addWorkOrder() {
+    const dialogRef = this.dialog.open(WorkorderAddComponent,{
+      width:'700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
   ngOnInit() {
   }

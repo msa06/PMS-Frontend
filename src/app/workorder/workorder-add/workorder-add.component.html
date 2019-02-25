@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>Add Work Order</h2>
+<mat-dialog-content>
+  <div class="container">
+
+    <form>
+
+
+      <mat-form-field>
+        <input matInput type="text" placeholder="Work Order Title" [formControl]="titleCtrl" required>
+        <mat-error align="end" *ngIf="titleCtrl.hasError('required')">A valid email is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" [formControl]="despCtrl" required></textarea>
+        <mat-error align="end" *ngIf="despCtrl.hasError('required')">Description is must!</mat-error>
+      </mat-form-field>
+
+      <div class="form-group">
+        <button mat-stroked-button (click)="fileInput.click()">Upload</button>
+        <input hidden type="file" #fileInput>
+      </div>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="myDatepicker" [min]="minDate" [formControl]="dateCtrl"
+          placeholder="Due Date / Work Scheduled On">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+        <mat-error align="end" *ngIf="dateCtrl.hasError('required')">A valid date dd/mm/yyyy is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Recurring Schedule">
+          <mat-option value="option">Daily</mat-option>
+          <mat-option value="option">Every Two Weeks</mat-option>
+          <mat-option value="option">Every Months</mat-option>
+          <mat-option value="option">Every Three Weeks</mat-option>
+          <mat-option value="option">Every Six Weeks</mat-option>
+          <mat-option value="option">Every Year</mat-option>
+          <mat-option value="option">Custom Schedule</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="number" placeholder="Estimated Duration(Hours)">
+      </mat-form-field>
+
+      <mat-button-toggle-group name="Priority">
+        <mat-button-toggle value="none">None</mat-button-toggle>
+        <mat-button-toggle value="low">Low</mat-button-toggle>
+        <mat-button-toggle value="medium">Medium</mat-button-toggle>
+        <mat-button-toggle value="high">High</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <mat-form-field>
+        <mat-select placeholder="Category">
+          <mat-option value="option" *ngFor="let category of categories">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Assigned To">
+          <mat-option value="option" *ngFor="let assign of assignies">{{assign}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Additional Workers">
+          <mat-option value="option" *ngFor="let worker of workers">{{worker}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Location">
+          <mat-option value="option" *ngFor="let location of locations">{{location}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Assets">
+          <mat-option value="option" *ngFor="let asset of assets">{{assets}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Purchase Order">
+          <mat-option value="option" *ngFor="let order of orders">{{orders}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial color="warn">Add Work Order</button>
+</mat-dialog-actions>

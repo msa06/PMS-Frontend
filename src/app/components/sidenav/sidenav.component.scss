@@ -1,5 +1,5 @@
 a {
-  color:#aaa;
+  color:#fff;
 }
 .navbar-brand{
   color:white;
@@ -22,7 +22,18 @@ hr{
   left:-10px;
   margin: 10px;
 }
+li{
+  a{ 
+    padding-left:10px;
+  }
+}
+li:hover{
+  
+  color:white;
+  background-color:rgb(40, 137, 247);
+}
 .active{
   font-weight: bold;
-  color:rgb(40, 137, 247);
+  color:white;
+  background-color:rgb(40, 137, 247);
 }

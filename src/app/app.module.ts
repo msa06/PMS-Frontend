@@ -17,7 +17,6 @@ import {
   MatMenuModule,
   
 } from '@angular/material';
-import { WorkorderAddComponent } from './components/workorder/workorder-add/workorder-add.component'; 
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { WorkorderAddComponent } from './components/workorder/workorder-add/work
     AppComponent,
     AssetsComponent,
     SidenavComponent,
-    WorkorderAddComponent
   ],
   imports: [
     BrowserModule,

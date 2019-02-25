@@ -4,19 +4,15 @@ import { Workorder } from 'src/app/models/Workorder';
 import { WorkorderService } from "src/app/services/workorder.service";
 
 
-let ELEMENT_DATA: Workorder[] = [];
-
-
-
 @Component({
   selector: 'app-workorder-table',
   templateUrl: './workorder-table.component.html',
   styleUrls: ['./workorder-table.component.scss']
 })
 export class WorkorderTableComponent implements OnInit {
-  
-  displayedColumns: string[] = ['due', 'woid', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  ELEMENT_DATA: Workorder[];
+  displayedColumns:string[];
+  dataSource;
   
   workorders:Workorder[];
 
@@ -28,10 +24,10 @@ export class WorkorderTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.workorders = this.workorderService.getWorkOrder();
-    this.workorders.forEach((workorder)=>{
-      ELEMENT_DATA.push(workorder)
-    });
+    this.ELEMENT_DATA = this.workorderService.getWorkOrder();
+
+    this.displayedColumns= ['due', 'woid', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
     this.dataSource.sort = this.sort;
   }
 
