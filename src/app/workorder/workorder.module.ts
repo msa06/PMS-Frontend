@@ -6,12 +6,19 @@ import { WorkorderMainComponent } from './workorder-main/workorder-main.componen
 import { WorkorderMenuComponent } from './workorder-main/workorder-menu/workorder-menu.component';
 import { WorkorderFilterComponent } from './workorder-main/workorder-filter/workorder-filter.component';
 import { WorkorderTableComponent } from './workorder-main/workorder-table/workorder-table.component';
+//Material
+import {
+   MatSortModule,
+   MatTableModule 
+  } from "@angular/material";
 
 @NgModule({
   declarations: [WorkorderMainComponent, WorkorderMenuComponent, WorkorderFilterComponent, WorkorderTableComponent],
   imports: [
     CommonModule,
-    WorkorderRoutingModule
+    WorkorderRoutingModule,
+    MatSortModule,
+    MatTableModule
   ]
 })
 export class WorkorderModule { }

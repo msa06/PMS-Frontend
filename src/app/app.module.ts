@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AssetsComponent } from './components/assets/assets.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -15,15 +14,14 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatButtonModule,
-  MatMenuModule
+  MatMenuModule,
+  
 } from '@angular/material'; 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-  
     AssetsComponent,
     SidenavComponent
   ],
@@ -35,7 +33,8 @@ import {
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

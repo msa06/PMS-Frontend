@@ -5,6 +5,10 @@ a {
   color:white;
   font-size:30px;
   font-weight: bolder;
+  display:flex;
+  padding-top: 10px;
+  margin-bottom: -10px;
+  align-items: center;
 }
 .sidenav{
   height: 100%;
@@ -13,9 +17,10 @@ a {
   margin-right: 10px;
 }
 hr{
-  background:#888;
+  background:#999;
   position: relative;
-  left:-5px;
+  left:-10px;
+  margin: 10px;
 }
 .active{
   font-weight: bold;
