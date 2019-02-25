@@ -5,15 +5,18 @@ import { AssetsComponent } from './components/assets/assets.component';
 import { WorkorderModule } from './workorder/workorder.module';
 
 const routes: Routes = [
-  {path:'assets',component:AssetsComponent},
+  {
+    path:'assets',component:AssetsComponent,
+  },
   {
     path:'workorder',
-    loadChildren:'./workorder/workorder.module#WorkorderModule'
+    loadChildren:'./workorder/workorder.module#WorkorderModule',
+    
   },
   {
     path:'',
     redirectTo:'workorder',
-    pathMatch:'full'
+    pathMatch:'full',
   }
 ];
 

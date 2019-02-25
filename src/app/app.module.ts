@@ -16,14 +16,16 @@ import {
   MatButtonModule,
   MatMenuModule,
   
-} from '@angular/material'; 
+} from '@angular/material';
+import { WorkorderAddComponent } from './components/workorder/workorder-add/workorder-add.component'; 
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AssetsComponent,
-    SidenavComponent
+    SidenavComponent,
+    WorkorderAddComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,14 @@
 table {
   width: 100%;
 }
-
+th{
+  color:white;
+}
 th.mat-sort-header-sorted {
   color: black;
+}
+
+.table-header{
+  background:rgb(40, 137, 247);
+   
 }

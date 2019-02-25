@@ -9,7 +9,9 @@ import { WorkorderTableComponent } from './workorder-main/workorder-table/workor
 //Material
 import {
    MatSortModule,
-   MatTableModule 
+   MatTableModule,
+   MatButtonModule, 
+   MatDialogModule
   } from "@angular/material";
 
 @NgModule({
@@ -18,7 +20,9 @@ import {
     CommonModule,
     WorkorderRoutingModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class WorkorderModule { }

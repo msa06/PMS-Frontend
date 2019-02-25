@@ -1,18 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import { Workorder } from 'src/app/models/Workorder';
+import { WorkorderService } from "src/app/services/workorder.service";
 
 
-const ELEMENT_DATA: Workorder[] = [
-  { due:new Date(),
-    woid:101,
-    status:'On Hold',
-    title:'Test Work Order',
-    priority:'LOW',
-    lastupdated:new Date(2019, 1, 22),
-    createdon:new Date()
-  }
-];
+let ELEMENT_DATA: Workorder[] = [];
 
 
 
@@ -26,10 +18,20 @@ export class WorkorderTableComponent implements OnInit {
   displayedColumns: string[] = ['due', 'woid', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   
+  workorders:Workorder[];
+
   @ViewChild(MatSort) sort: MatSort;
+  constructor(
+    private workorderService:WorkorderService 
+    ) {
+    
+  }
 
   ngOnInit() {
-
+    this.workorders = this.workorderService.getWorkOrder();
+    this.workorders.forEach((workorder)=>{
+      ELEMENT_DATA.push(workorder)
+    });
     this.dataSource.sort = this.sort;
   }
 
