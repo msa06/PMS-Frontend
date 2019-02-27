@@ -13,8 +13,8 @@ export class WorkorderTableComponent implements OnInit {
   ELEMENT_DATA: Workorder[];
   displayedColumns:string[];
   dataSource;
-  
-  workorders:Workorder[];
+  workorder:Workorder;
+
 
   @ViewChild(MatSort) sort: MatSort;
   constructor(
@@ -24,11 +24,17 @@ export class WorkorderTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ELEMENT_DATA = this.workorderService.getWorkOrder();
+    this.workorderService.getWorkOrder().subscribe(workorders=>{  
+      this.ELEMENT_DATA = workorders
+      console.log(this.ELEMENT_DATA);
+      this.displayedColumns= ['due', 'id', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      this.dataSource.sort = this.sort;
+    });
+    
 
-    this.displayedColumns= ['due', 'woid', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    this.dataSource.sort = this.sort;
+    
+    
   }
 
 }

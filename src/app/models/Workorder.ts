@@ -1,12 +1,13 @@
 export interface Workorder {
-  due:Date;
-  woid:number;
-  status:string;
-  title: string;
-  priority: string;
+  due?:Date;
+  id?:number;
+  status?:string;
+  title?: string;
+  description?:string;
+  priority?: string;
   assignee?: string[];
   location?:string;
-  assets?:string;
-  lastupdated:Date;
-  createdon:Date;
+  asset?:string;
+  lastupdated?:Date;
+  createdon?:Date;
 }

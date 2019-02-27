@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 
 import { WorkorderRoutingModule } from './workorder-routing.module';
@@ -17,15 +17,17 @@ import {
    MatInputModule,
    MatDatepickerModule,
    MatSelectModule,
-   MatButtonToggleModule
+   MatButtonToggleModule,
   } from "@angular/material";
   import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { WorkorderAddComponent } from './workorder-add/workorder-add.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [WorkorderMainComponent, WorkorderMenuComponent, WorkorderFilterComponent, WorkorderTableComponent, WorkorderAddComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     WorkorderRoutingModule,
@@ -40,6 +42,7 @@ import { WorkorderAddComponent } from './workorder-add/workorder-add.component';
     MatSelectModule,
     MatButtonToggleModule
   ],
-  entryComponents:[WorkorderAddComponent]
+  entryComponents:[WorkorderAddComponent],
+  providers:[DatePipe]
 })
 export class WorkorderModule { }

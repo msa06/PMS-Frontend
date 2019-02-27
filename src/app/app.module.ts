@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from "@angular/forms";
+
 
 import { AssetsComponent } from './components/assets/assets.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -17,6 +19,7 @@ import {
   MatMenuModule,
   
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,6 +37,8 @@ import {
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
+    FormsModule,
+    HttpClientModule
   
   ],
   providers: [],

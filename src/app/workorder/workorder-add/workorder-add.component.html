@@ -2,12 +2,12 @@
 <mat-dialog-content>
   <div class="container">
 
-    <form>
+    <form (ngSubmit)="onSubmit()">
 
 
       <mat-form-field>
-        <input matInput type="text" placeholder="Work Order Title" [formControl]="titleCtrl" required>
-        <mat-error align="end" *ngIf="titleCtrl.hasError('required')">A valid email is required</mat-error>
+        <input matInput type="text" placeholder="Work Order Title" [formControl]="titleCtrl" required="wotitle">
+        <mat-error align="end" *ngIf="titleCtrl.hasError('required')">Title is required</mat-error>
       </mat-form-field>
       <mat-form-field>
         <textarea matInput placeholder="Description" [formControl]="despCtrl" required></textarea>
@@ -15,7 +15,7 @@
       </mat-form-field>
 
       <div class="form-group">
-        <button mat-stroked-button (click)="fileInput.click()">Upload</button>
+        <button mat-stroked-button (click)="fileInput.click()">Upload Image</button>
         <input hidden type="file" #fileInput>
       </div>
 
@@ -28,14 +28,9 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select placeholder="Recurring Schedule">
-          <mat-option value="option">Daily</mat-option>
-          <mat-option value="option">Every Two Weeks</mat-option>
-          <mat-option value="option">Every Months</mat-option>
-          <mat-option value="option">Every Three Weeks</mat-option>
-          <mat-option value="option">Every Six Weeks</mat-option>
-          <mat-option value="option">Every Year</mat-option>
-          <mat-option value="option">Custom Schedule</mat-option>
+        <mat-select placeholder="Recurring Schedule" [(value)]="recursivevalue">
+          <mat-option *ngFor="let schedule of schedules" value="{{schedule}}" >{{schedule}}</mat-option>
+          
         </mat-select>
       </mat-form-field>
 
@@ -43,16 +38,16 @@
         <input matInput type="number" placeholder="Estimated Duration(Hours)">
       </mat-form-field>
 
-      <mat-button-toggle-group name="Priority">
-        <mat-button-toggle value="none">None</mat-button-toggle>
-        <mat-button-toggle value="low">Low</mat-button-toggle>
-        <mat-button-toggle value="medium">Medium</mat-button-toggle>
-        <mat-button-toggle value="high">High</mat-button-toggle>
+      <mat-button-toggle-group name="Priority" [(value)]="priorityvalue" >
+        <mat-button-toggle value="0">None</mat-button-toggle>
+        <mat-button-toggle value="1">Low</mat-button-toggle>
+        <mat-button-toggle value="2">Medium</mat-button-toggle>
+        <mat-button-toggle value="3">High</mat-button-toggle>
       </mat-button-toggle-group>
 
       <mat-form-field>
         <mat-select placeholder="Category">
-          <mat-option value="option" *ngFor="let category of categories">{{category}}</mat-option>
+          <mat-option value="{{category}}" *ngFor="let category of categories">{{category}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -89,5 +84,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-flat-button mat-dialog-close>Cancel</button>
-  <button mat-flat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial color="warn">Add Work Order</button>
+  <button mat-flat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial color="warn" type="submit" (click)="onSubmit()">Add Work Order</button>
 </mat-dialog-actions>
