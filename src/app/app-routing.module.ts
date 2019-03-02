@@ -1,16 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AssetsComponent } from './components/assets/assets.component';
 import { WorkorderModule } from './workorder/workorder.module';
+import { RequestModule } from "./request/request.module";
+import { AssetsModule } from "./assets/assets.module";
+import { InventoryModule } from "./inventory/inventory.module";
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
-  {
-    path:'assets',component:AssetsComponent,
-  },
+  
   {
     path:'workorder',
     loadChildren:'./workorder/workorder.module#WorkorderModule',
+    
+  },
+  {
+    path:'request',
+    loadChildren:'./request/request.module#RequestModule',
+    
+  },
+  {
+    path:'assets',
+    loadChildren:'./assets/assets.module#AssetsModule',
+    
+  },
+  {
+    path:'inventory',
+    loadChildren:'./inventory/inventory.module#InventoryModule',
+    
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
     
   },
   {
