@@ -1,7 +1,10 @@
 export interface Machine {
-    aid:number;
-    aname:string;
-    atype:string;
-    adesc:string;
-    acost:number;
+    
+    mid:string;
+    mname:string;
+    mperform:string;
+    mfunc:string;
+    mmanufacturer:string;
+    mpurchase:string;
+    compindex?:number[];
   }

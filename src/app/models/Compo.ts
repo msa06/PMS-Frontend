@@ -1,7 +1,10 @@
 export interface Compo {
-    cid:number;
-    cname:string;
-    ctype:string;
-    cdesc:string;
-    ccost:number;
+  
+  compid:string;
+  compname:string;
+  compperform:string;
+  compfunc:string;
+  compmanufacturer:string;
+  comppurchase:string;
+  subcompindex?:number[];
   }

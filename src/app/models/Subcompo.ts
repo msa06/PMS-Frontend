@@ -1,7 +1,10 @@
 export interface Subcompo {
-    sid:number;
-    sname:string;
-    stype:string;
-    sdesc:string;
-    scost:number;
+  
+  subcompid:string;
+  subcompname:string;
+  subcompperform:string;
+  subcompfunc:string;
+  subcompmanufacturer:string;
+  subcomppurchase:string;
+  
   }

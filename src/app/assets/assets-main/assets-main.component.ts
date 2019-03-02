@@ -18,18 +18,21 @@ export class AssetsMainComponent implements OnInit {
   
   machines:Machine[]=[
       {
-          "aid": 1,
-          "aname": 'aaa',
-          "atype": 'fghtyy',
-          "adesc": 'tyjgifg',
-          "acost": 2000
+          "mid":'MACHINE1',
+          "mname": 'machine one',
+          "mperform": 'wt-1920kg',
+          "mfunc": 'cutting',
+          "mmanufacturer":'kurid',
+          "mpurchase":'1/2/2019',
+          "compindex":[1,3]
       },
       {
-        "aid": 2,
-        "aname": 'bbb',
-        "atype": 'fghtyy',
-        "adesc": 'tyjgifg',
-        "acost": 3000
+        "mid":'MACHINE2',
+          "mname": 'machine two',
+          "mperform": 'wt-1920kg',
+          "mfunc": 'cutting',
+          "mmanufacturer":'kurid',
+          "mpurchase":'1/2/2019'
     },
     ]
     machinecolumns:string[];
@@ -38,18 +41,20 @@ export class AssetsMainComponent implements OnInit {
 
     components:Compo[]=[
       {
-          "cid": 1,
-          "cname": 'cccc',
-          "ctype": 'fghtyy',
-          "cdesc": 'tyjgifg',
-          "ccost": 2000
+        "compid":'COMPONENT1',
+        "compname": 'component one',
+        "compperform": 'wt-19kg',
+        "compfunc": 'cutting',
+        "compmanufacturer":'kurid',
+        "comppurchase":'1/2/2019'
       },
       {
-        "cid": 2,
-        "cname": 'ddd',
-        "ctype": 'fghtyy',
-        "cdesc": 'tyjgifg',
-        "ccost": 3000
+        "compid":'COMPONENT2',
+          "compname": 'component two',
+          "compperform": 'wt-20kg',
+          "compfunc": 'cutting',
+          "compmanufacturer":'kurid',
+          "comppurchase":'1/2/2019'
     },
     ]
     componentscolumns:string[];
@@ -57,18 +62,20 @@ export class AssetsMainComponent implements OnInit {
 
     subcomponents:Subcompo[]=[
       {
-          "sid": 1,
-          "sname": 'aaa',
-          "stype": 'fghtyy',
-          "sdesc": 'tyjgifg',
-          "scost": 2000
+        "subcompid":'SUBCOMPONENT1',
+        "subcompname": 'subcompnent two',
+        "subcompperform": 'wt20kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'26/8/19'
       },
       {
-        "sid": 2,
-        "sname": 'bbb',
-        "stype": 'fghtyy',
-        "sdesc": 'tyjgifg',
-        "scost": 3000
+        "subcompid":'SUBCOMPONENT2',
+        "subcompname": 'subcomponent two',
+        "subcompperform": 'wt-1920kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'1/2/2019'
     },
     ]
     subcolumns:string[];
@@ -84,31 +91,34 @@ export class AssetsMainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.machinecolumns= ['aid', 'aname', 'atype', 'adesc','acost'];
-    this.componentscolumns= ['cid', 'cname', 'ctype', 'cdesc','ccost'];
-    this.subcolumns= ['sid', 'sname', 'stype', 'sdesc','scost'];
+    this.machinecolumns= [ 'mid', 'mname', 'mperform','mfunc',' mmanufacturer','mpurchase'];
+    this.componentscolumns= [ 'compid', 'compname', 'compperform','compfunc',' compmanufacturer','comppurchase'];
+    this.subcolumns= [ 'subcompid', 'subcompname', 'subcompperform','subcompfunc',' subcompmanufacturer','subcomppurchase'];
     
     
   }
   onMachineselect(){
     const filtermachine:Machine[] = this.machines.filter((machine)=>{
-      return machine.aname == this.mselected;
+      return machine.mid == this.mselected;
     } 
       );
     this.machinedata = new MatTableDataSource(filtermachine);
     this.machinedata.sort = this.sort;
+    this.cselected = null;
+    this.subselected = null;
   }
   onComponentselect(){
     const filtercomponent:Compo[] = this.components.filter((component)=>{
-      return component.cname == this.cselected;
+      return component.compid == this.cselected;
     } 
       );
     this.componentsdata = new MatTableDataSource(filtercomponent);
     this.componentsdata.sort = this.sort;
+    this.subselected = null;
   }
   onSubselect(){
     const filtersubcomponent:Subcompo[] = this.subcomponents.filter((subcomponent)=>{
-      return subcomponent.sname == this.subselected;
+      return subcomponent.subcompid == this.subselected;
     } 
       );
     this.subcompdata = new MatTableDataSource(filtersubcomponent);
