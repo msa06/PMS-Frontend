@@ -25,6 +25,7 @@ export class WorkorderComponent implements OnInit {
   despCtrl:FormControl;
   newWork:Workorder = {};
   gid:number=120;
+  data:Workorder = {};
 
   schedules:string[]=['Daily','Every Two Weeks','Every Months','Every Three Weeks','Every Six Weeks','Every Year','Custom Schedule'];
   categories:string[]=['None','Damage','Electrical','Inspection','Meter','Preventive','Project','Safety','Upgrade'];
@@ -50,8 +51,6 @@ export class WorkorderComponent implements OnInit {
     
     this.workorderService.getWorkOrder().subscribe(workorders=>{  
       this.ELEMENT_DATA = workorders
-      
-      
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
       this.dataSource.sort = this.sort;
     });
@@ -70,19 +69,15 @@ export class WorkorderComponent implements OnInit {
   }
 
   selectRow(row){
-    const dialogRef = this.dialog.open(WorkorderEditComponent,{
-      data:row,
-      width:'700px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    console.log(row);
+    this.data = row;
   }
 
   addWorkOrder(newWork:Workorder) {
-    this.workorderServ
-    ice.addWorkOrder(newWork).subscribe(workorder=>{  
-      console.log(workorder);
+    this.workorderService.addWorkOrder(newWork).subscribe(workorder=>{  
+      this.ELEMENT_DATA.push(workorder);
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      this.dataSource.sort = this.sort;
     });
     
   }
