@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
 
 
-import { AssetsComponent } from './components/assets/assets.component';
+
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    AssetsComponent,
     SidenavComponent,
   ],
   imports: [
