@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -17,32 +17,61 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatMenuModule,
+  MatSortModule,
+  MatTableModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatButtonToggleModule,
   
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { WorkorderModule } from './workorder/workorder.module';
+import { WorkorderMainComponent } from './workorder/workorder-main/workorder-main.component';
+import { WorkorderComponent } from './components/workorder/workorder.component';
+import { RequestComponent } from './components/request/request.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { AssetsComponent } from './components/assets/assets.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    SidenavComponent,
     NotificationsComponent,
-    
+    SidenavComponent,
+    WorkorderComponent,
+    RequestComponent,
+    InventoryComponent,
+    AssetsComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    WorkorderModule,
+    FormsModule,
+    HttpClientModule,
+
     MatSidenavModule,
-    MatButtonModule,
+  
     MatIconModule,
+    MatSortModule,
+    MatTableModule,
+    MatButtonModule, 
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatButtonToggleModule,
     MatToolbarModule,
     MatMenuModule,
-    FormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   
   ],
   providers: [],

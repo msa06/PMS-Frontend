@@ -1,3 +1,38 @@
-<p>
-  profile works!
-</p>
+<mat-drawer-container class="matContainer" autoSize>
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+        <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <div class="sidenav-content">
+           
+            <mat-toolbar color="primary">
+              <mat-toolbar-row class="bg-light text-dark border-bottom ">
+                  <button mat-icon-button (click)="drawer.toggle()">
+                      <mat-icon>menu</mat-icon>
+              </button>
+                  <span>User Profile</span>
+                  <span class="spacer"></span>
+                  <mat-icon class="mx-2">notification_important</mat-icon>
+                            
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                      <mat-icon class="mx-2">account_circle</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <span mat-menu-item>John Doe</span>
+                      
+                        <a href="#" routerLink="/profile" style="text-decoration: none"><button mat-menu-item>
+                            <mat-icon>perm_identity</mat-icon>
+                            <span>View Profile</span>
+                          </button>
+                        </a>
+                      <button mat-menu-item>
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Logout</span>
+                      </button>
+                    </mat-menu>
+              </mat-toolbar-row>
+          </mat-toolbar>
+        
+    </div>
+  </mat-drawer-container>
+  
+  

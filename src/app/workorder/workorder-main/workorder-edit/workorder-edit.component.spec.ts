@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkorderMenuComponent } from './workorder-menu.component';
+import { WorkorderEditComponent } from './workorder-edit.component';
 
-describe('WorkorderMenuComponent', () => {
-  let component: WorkorderMenuComponent;
-  let fixture: ComponentFixture<WorkorderMenuComponent>;
+describe('WorkorderEditComponent', () => {
+  let component: WorkorderEditComponent;
+  let fixture: ComponentFixture<WorkorderEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkorderMenuComponent ]
+      declarations: [ WorkorderEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkorderMenuComponent);
+    fixture = TestBed.createComponent(WorkorderEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

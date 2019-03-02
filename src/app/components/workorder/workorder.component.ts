@@ -1,19 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Workorder } from 'src/app/models/Workorder';
-import { WorkorderService } from "src/app/services/workorder.service";
-import { MatDialog } from "@angular/material";
-import { WorkorderEditComponent } from '../workorder-edit/workorder-edit.component';
-import { FormControl, Validators } from '@angular/forms';
+import { MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { DatePipe } from '@angular/common';
-
+import { WorkorderService } from 'src/app/services/workorder.service';
+import { Validators, FormControl } from '@angular/forms';
+import { WorkorderEditComponent } from 'src/app/workorder/workorder-main/workorder-edit/workorder-edit.component';
+import { workers } from 'cluster';
 
 @Component({
-  selector: 'app-workorder-table',
-  templateUrl: './workorder-table.component.html',
-  styleUrls: ['./workorder-table.component.scss']
+  selector: 'app-workorder',
+  templateUrl: './workorder.component.html',
+  styleUrls: ['./workorder.component.scss']
 })
-export class WorkorderTableComponent implements OnInit {
+export class WorkorderComponent implements OnInit {
   ELEMENT_DATA: Workorder[];
   displayedColumns:string[];
   dataSource;
@@ -25,6 +24,7 @@ export class WorkorderTableComponent implements OnInit {
   titleCtrl:FormControl;
   despCtrl:FormControl;
   newWork:Workorder = {};
+  gid:number=120;
 
   schedules:string[]=['Daily','Every Two Weeks','Every Months','Every Three Weeks','Every Six Weeks','Every Year','Custom Schedule'];
   categories:string[]=['None','Damage','Electrical','Inspection','Meter','Preventive','Project','Safety','Upgrade'];
@@ -48,16 +48,16 @@ export class WorkorderTableComponent implements OnInit {
 
   ngOnInit() {
     
-    // this.workorderService.getWorkOrder().subscribe(workorders=>{  
-    //   this.ELEMENT_DATA = workorders
-    //   console.log(workorders);
+    this.workorderService.getWorkOrder().subscribe(workorders=>{  
+      this.ELEMENT_DATA = workorders
       
-    //   this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    //   this.dataSource.sort = this.sort;
-    // });
-    this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    this.dataSource.sort = this.sort; 
+      
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      this.dataSource.sort = this.sort;
+    });
+    // this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
+    // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    // this.dataSource.sort = this.sort; 
     
     this.dateCtrl = new FormControl('',
     [
@@ -79,16 +79,25 @@ export class WorkorderTableComponent implements OnInit {
     });
   }
 
-  addWorkOrder() {
+  addWorkOrder(newWork:Workorder) {
+    this.workorderServ
+    ice.addWorkOrder(newWork).subscribe(workorder=>{  
+      console.log(workorder);
+    });
     
-    // const dialogRef = this.dialog.open(WorkorderAddComponent,{
-    //   width:'700px'
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
-    
+  }
+  onSubmit(){
+    this.newWork.title = this.titleCtrl.value;
+    this.newWork.id = this.getId();
+    this.newWork.description = this.despCtrl.value;
+    this.newWork.priority = this.priorities[this.priorityvalue];
+    this.newWork.lastupdated = new Date();
+    this.newWork.createdon = new Date();
+    this.addWorkOrder(this.newWork);
+  }
+  getId(){
+    this.gid = this.gid++;
+    return this.gid;
   }
 
 }

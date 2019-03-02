@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AssetsMainComponent } from './assets-main.component';
+import { WorkorderComponent } from './workorder.component';
 
-describe('AssetsMainComponent', () => {
-  let component: AssetsMainComponent;
-  let fixture: ComponentFixture<AssetsMainComponent>;
+describe('WorkorderComponent', () => {
+  let component: WorkorderComponent;
+  let fixture: ComponentFixture<WorkorderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetsMainComponent ]
+      declarations: [ WorkorderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AssetsMainComponent);
+    fixture = TestBed.createComponent(WorkorderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

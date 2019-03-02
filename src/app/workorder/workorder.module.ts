@@ -4,10 +4,11 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 
 import { WorkorderRoutingModule } from './workorder-routing.module';
 import { WorkorderMainComponent } from './workorder-main/workorder-main.component';
-import { WorkorderMenuComponent } from './workorder-main/workorder-menu/workorder-menu.component';
 import { WorkorderTableComponent } from './workorder-main/workorder-table/workorder-table.component';
 //Material
 import {
+  MatSidenavModule,
+  MatIconModule,
    MatSortModule,
    MatTableModule,
    MatButtonModule, 
@@ -17,13 +18,19 @@ import {
    MatDatepickerModule,
    MatSelectModule,
    MatButtonToggleModule,
+   MatToolbar,
+   MatToolbarModule,
+   MatMenuModule,
+   
+   
   } from "@angular/material";
-  import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { WorkorderAddComponent } from './workorder-main/workorder-add/workorder-add.component';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { HttpClientModule } from '@angular/common/http';
+import { WorkorderEditComponent } from './workorder-main/workorder-edit/workorder-edit.component';
+
 
 @NgModule({
-  declarations: [WorkorderMainComponent, WorkorderMenuComponent,WorkorderTableComponent, WorkorderAddComponent],
+  declarations: [WorkorderMainComponent,WorkorderTableComponent,WorkorderEditComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -39,9 +46,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatMomentDateModule,
     MatSelectModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule
+    
   ],
-  entryComponents:[WorkorderAddComponent],
+  entryComponents:[
+],
   providers:[DatePipe]
 })
 export class WorkorderModule { }

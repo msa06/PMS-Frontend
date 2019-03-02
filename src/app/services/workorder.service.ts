@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Workorder } from '../models/Workorder';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable,BehaviorSubject } from 'rxjs';
+const httpOtions = {
+  headers:new HttpHeaders({
+    'Content-Type':'application/json'
+  })
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class WorkorderService {
+
   workOrders:Workorder[]=[
     { due:new Date(),
       id:101,
@@ -33,8 +39,7 @@ export class WorkorderService {
       createdon:new Date()
     }
   ];
-  API_GET_URL = 'http://localhost:8082/workorder';
-  API_POST_URL = 'http://localhost:7071/workorder';
+  API_URL = 'http://localhost:7071/workorder';
   
   constructor(
     private http:HttpClient
@@ -43,19 +48,19 @@ export class WorkorderService {
   
   //Get Work Order
   getWorkOrder():Observable<Workorder[]>{
-    return this.http.get<Workorder[]>(this.API_GET_URL);
+    console.log('Work Order HTTP CALL');
+    return this.http.get<Workorder[]>(this.API_URL);
   }
+
   // getWorkOrder(){
   //   return this.workOrders;
   // }
 
-  addWorkOrder(work:Workorder){
-    // console.log(work);
-    return this.http.post<Workorder>(this.API_POST_URL,work);
+  addWorkOrder(work:Workorder):Observable<Workorder>{
+    return this.http.post<Workorder>(this.API_URL,work,httpOtions);
   }
-  //Add Work Order
-  // addTodo(todo:Todo):Observable<Todo>{
-  //   return this.http.post<Todo>(this.todoUrls,todo,httpOtions);
-  // }
-
+  deleteWorkOrder(work:Workorder){
+    const url = `${this.API_URL}/${work.id}}`;
+    return this.http.delete<Workorder>(url,httpOtions);
+  }
 }

@@ -13,11 +13,10 @@
     }
   }
 }
-.spacer{
-  flex: 1 1 auto;
+.sidenav-container{
+  display:inline;
 }
-.mat-toolbar-row{
+.mat-drawer-container { z-index: inherit; } 
+.mat-drawer-content{ z-index: inherit; }
 
-  width: 100%;
-}
   

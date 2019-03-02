@@ -1,3 +1,33 @@
+
+.mat-form-field{
+  width: 100%;
+}
+
+.matContainer{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .mat-drawer{
+    min-width: 250px;
+    .mat-button{
+      display:block;
+      width: 100px;
+      text-align: left;
+    }
+  }
+}
+.spacer{
+  flex: 1 1 auto;
+}
+.mat-toolbar-row{
+
+  width: 100%;
+}
+.mat-drawer-container { z-index: inherit; } 
+.mat-drawer-content{ z-index: inherit; }
+
 table {
   width: 100%;
 }
@@ -70,4 +100,12 @@ tr.example-element-row:not(.example-expanded-row):active {
   z-index: 0!important;
   background-color: #000;
 
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
 }
