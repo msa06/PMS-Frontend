@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table {
+    width: 100%;
+  }
+  th{
+    color:white;
+  }
+  th.mat-sort-header-sorted {
+    color: white;
+  }
+  
+  .table-header{
+    background:rgb(40, 137, 247);
+     
+  }
