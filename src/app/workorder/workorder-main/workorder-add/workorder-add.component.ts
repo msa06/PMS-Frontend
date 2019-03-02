@@ -17,15 +17,7 @@ export class WorkorderAddComponent implements OnInit {
   titleCtrl:FormControl;
   despCtrl:FormControl;
   
-  newWork:Workorder = {
-    due: new Date(),
-    id:0,
-    status:'',
-    title:'',
-    priority:'',
-    lastupdated:new Date(),
-    createdon:new Date()
-  };
+  newWork:Workorder = {};
 
   schedules:string[]=['Daily','Every Two Weeks','Every Months','Every Three Weeks','Every Six Weeks','Every Year','Custom Schedule'];
   categories:string[]=['None','Damage','Electrical','Inspection','Meter','Preventive','Project','Safety','Upgrade'];
@@ -60,13 +52,23 @@ export class WorkorderAddComponent implements OnInit {
     this.newWork.id = this.getwoid(this.workid);
     this.newWork.status = this.status[0];
     this.newWork.title = this.titleCtrl.value;
+    this.newWork.description = this.despCtrl.value;
     this.newWork.priority = this.priorities[this.priorityvalue];
     this.newWork.lastupdated = new Date();
     this.newWork.createdon = new Date();
 
     //call the services
-    this.workorderService.addWorkOrder(this.newWork);
-    console.log(this.newWork);
+    this.workorderService.addWorkOrder(this.newWork).subscribe(workorder=>{
+      console.log(workorder);
+    });
+    // console.log(this.newWork.due);
+    // console.log(this.newWork.id);
+    // console.log(this.newWork.status);
+    // console.log(this.newWork.title);
+    // console.log(this.newWork.description);
+    // console.log(this.newWork.priority);
+    // console.log(this.newWork.lastupdated);
+    // console.log(this.newWork.createdon);
   }
   getwoid(woid){
     woid = woid++;

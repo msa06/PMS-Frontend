@@ -19,7 +19,7 @@ import {
    MatButtonToggleModule,
   } from "@angular/material";
   import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { WorkorderAddComponent } from './workorder-add/workorder-add.component';
+import { WorkorderAddComponent } from './workorder-main/workorder-add/workorder-add.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

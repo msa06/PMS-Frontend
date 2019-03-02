@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { WorkorderAddComponent } from '../../workorder-add/workorder-add.component';
+import { WorkorderAddComponent } from '../workorder-add/workorder-add.component'
 
 @Component({
   selector: 'app-workorder-menu',

@@ -20,21 +20,23 @@ export class WorkorderTableComponent implements OnInit {
   constructor(
     private workorderService:WorkorderService 
     ) {
-    
+      this.displayedColumns= ['due', 'id', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
+      
   }
 
   ngOnInit() {
+    //this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
     this.workorderService.getWorkOrder().subscribe(workorders=>{  
       this.ELEMENT_DATA = workorders
-      console.log(this.ELEMENT_DATA);
-      this.displayedColumns= ['due', 'id', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
       this.dataSource.sort = this.sort;
     });
-    
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.dataSource.sort = this.sort;  
+  }
 
-    
-    
+  selectRow(row){
+    console.log(row);
   }
 
 }
