@@ -31,6 +31,52 @@
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
-
+    <div class="container">
+     
+      <form>
+          <div class="form-group">
+            <label >Asset ID</label>
+            <input type="text" class="form-control" placeholder="Asset ID">
+          </div>
+          <div class="form-group">
+              <label >Vendors</label>
+              <input type="text" class="form-control" placeholder="Vendors">
+          </div>
+          <div class="form-group">
+              <label>WorkDetails</label>
+              <textarea type="text" class="form-control" placeholder="Work Details"></textarea>
+          </div>
+          <div class="form-group">
+              <label >Type of Maintenance</label>
+              <select id="type" class="form-control">
+                  <option>Preventive Maintenance</option>
+                  <option>Annual Maintenance</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label >Component ID</label>
+                <input type="number" class="form-control" placeholder="Component ID">
+            </div>
+            <div class="form-group">
+                <label >Sub Component ID</label>
+                <input type="number" class="form-control" placeholder="Sub Component ID">
+            </div>
+            <mat-form-field class="col-md-6">
+                <input matInput [matDatepicker]="start" placeholder="Start Date">
+                <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                <mat-datepicker #start></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-md-6">
+                <input matInput [matDatepicker]="end" placeholder="End Date">
+                <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                <mat-datepicker #end></mat-datepicker>
+            </mat-form-field>
+            <button class="btn btn-primary btn-block" (click)="OnSubmit()">Create</button>
+            
+        </form>
+          
+  
+        
+    </div>
   </div>
 </mat-drawer-container>

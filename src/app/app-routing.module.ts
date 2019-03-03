@@ -9,6 +9,7 @@ import { from } from 'rxjs';
 import { ProductComponent } from './components/products/products.component';
 import { LoginComponent } from './componenets/login/login.component';
 import { AMPMComponent } from './componenets/ampm/ampm.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'notification',
+    component:NotificationsComponent
   },
   {
     path:'',

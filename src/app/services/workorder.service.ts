@@ -66,6 +66,7 @@ export class WorkorderService {
   ];
   API_URL = 'http://localhost:7071/workorder';
   API_MAIN_URL = 'http://localhost:7071/mainmachine';
+  API_NOTI_URL= 'http://localhost:7071/notification';
   
   constructor(
     private http:HttpClient
@@ -87,7 +88,10 @@ export class WorkorderService {
     //   return this.workOrders;
     // }
 
-
+  getNotification():Observable<string[]>{
+    return this.http.get<string[]>(this.API_NOTI_URL);
+  }
+  
   addWorkOrder(work:Workorder):Observable<Workorder>{
     return this.http.post<Workorder>(this.API_URL,work,httpOtions);
   }

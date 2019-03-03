@@ -19,7 +19,7 @@
                     <mat-menu #menu="matMenu">
                         <span mat-menu-item>John Doe</span>
                       
-                        <a href="#" routerLink="/profile" style="text-decoration: none"><button mat-menu-item>
+                        <a href="#" routerLink="/notifications" style="text-decoration: none"><button mat-menu-item>
                             <mat-icon>perm_identity</mat-icon>
                             <span>View Profile</span>
                           </button>
@@ -32,9 +32,11 @@
               </mat-toolbar-row>
           </mat-toolbar>
         <div class="container">
-            <router-outlet></router-outlet>
+            <ul>
+              <li *ngFor="let notif of notifications">{{notif}}</li>
+            </ul>
         </div>
-        
+
     </div>
   </mat-drawer-container>
   
