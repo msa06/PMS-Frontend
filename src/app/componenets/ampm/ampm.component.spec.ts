@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogComponent } from './log.component';
+import { AMPMComponent } from './ampm.component';
 
-describe('LogComponent', () => {
-  let component: LogComponent;
-  let fixture: ComponentFixture<LogComponent>;
+describe('AMPMComponent', () => {
+  let component: AMPMComponent;
+  let fixture: ComponentFixture<AMPMComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogComponent ]
+      declarations: [ AMPMComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogComponent);
+    fixture = TestBed.createComponent(AMPMComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

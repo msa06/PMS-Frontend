@@ -121,83 +121,67 @@
           <div class="modal-body">
                 <div class="example-container">
                 <form (ngSubmit)="onSubmit()">
-                  <mat-form-field>
-                    <input matInput type="text" placeholder="Work Order Title" [formControl]="titleCtrl" required="wotitle">
-                    <mat-error align="end" *ngIf="titleCtrl.hasError('required')">Title is required</mat-error>
-                  </mat-form-field>
                   
-                  <mat-form-field>
-                    <textarea matInput placeholder="Description" [formControl]="despCtrl" required></textarea>
-                    <mat-error align="end" *ngIf="despCtrl.hasError('required')">Description is must!</mat-error>
-                  </mat-form-field>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="wotitle" placeholder="Work Order Title" [(ngModel)]="wotitle">
+                  </div>
+                  <div class="form-group">
+          
+                    <textarea class="form-control" placeholder="Description" name="desc" [(ngModel)]="desc"></textarea>
+                  </div>
+
+                  
 <!--     
                   <div class="form-group">
                     <button mat-stroked-button (click)="fileInput.click()">Upload Image</button>
                     <input hidden type="file" #fileInput>
                   </div> -->
-    
-                  <mat-form-field>
-                    <input matInput  type="date" placeholder="Due Date / Work Scheduled On">
-                  </mat-form-field>
+                 
+                      <mat-button-toggle-group class="mt-2" name="Priority" [(value)]="priorityvalue">
+                          <mat-button-toggle value="0">None</mat-button-toggle>
+                          <mat-button-toggle value="1">Low</mat-button-toggle>
+                          <mat-button-toggle value="2">Medium</mat-button-toggle>
+                          <mat-button-toggle value="3">High</mat-button-toggle>
+                        </mat-button-toggle-group>
+                      
+                      
+                          
+                        <select class="custom-select">
+                            <option selected value="0">Open</option>
+                            <option value="1">On Hold</option>
+                            <option value="2">On Progress</option>
+                            <option value="3">Completed</option>
+                          </select>
+                      
+                      
                   
-                  <!-- <mat-form-field>
-                    <input matInput [matDatepicker]="myDatepicker" [min]="minDate" [formControl]="dateCtrl"
-                      placeholder="Due Date / Work Scheduled On">
-                    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #myDatepicker></mat-datepicker> -->
-                    <!-- <mat-error align="end" *ngIf="dateCtrl.hasError('required')">A valid date dd/mm/yyyy is required
-                    </mat-error> -->
-                  <!-- </mat-form-field> -->
-    
-                  <!-- <mat-form-field>
-                    <mat-select placeholder="Recurring Schedule" [(value)]="recursivevalue">
-                      <mat-option *ngFor="let schedule of schedules" value="{{schedule}}">{{schedule}}</mat-option>
-    
-                    </mat-select>
-                  </mat-form-field> -->
-    
-                  <!-- <mat-form-field>
-                    <input matInput type="number" placeholder="Estimated Duration(Hours)">
-                  </mat-form-field> -->
-    
-                  <mat-button-toggle-group name="Priority" [(value)]="priorityvalue">
-                    <mat-button-toggle value="0">None</mat-button-toggle>
-                    <mat-button-toggle value="1">Low</mat-button-toggle>
-                    <mat-button-toggle value="2">Medium</mat-button-toggle>
-                    <mat-button-toggle value="3">High</mat-button-toggle>
-                  </mat-button-toggle-group>
-    
-                  <!-- <mat-form-field>
-                    <mat-select placeholder="Category">
-                      <mat-option value="{{category}}" *ngFor="let category of categories">{{category}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-    
-                  <mat-form-field>
-                    <mat-select placeholder="Assigned To">
-                      <mat-option value="option" *ngFor="let assign of assignies">{{assign}}</mat-option>
-                    </mat-select>
-                  </mat-form-field> -->
-                  <!-- <mat-form-field>
-                    <mat-select placeholder="Additional Workers">
-                      <mat-option value="option" *ngFor="let worker of workers">{{worker}}</mat-option>
-                    </mat-select>
-                  </mat-form-field> -->
-                  <!-- <mat-form-field>
-                    <mat-select placeholder="Location">
-                      <mat-option value="option" *ngFor="let location of locations">{{location}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <mat-select placeholder="Assets">
-                      <mat-option value="option" *ngFor="let asset of assets">{{assets}}</mat-option>
-                    </mat-select>
-                  </mat-form-field> -->
-                  <!-- <mat-form-field>
-                    <mat-select placeholder="Purchase Order">
-                      <mat-option value="option" *ngFor="let order of orders">{{orders}}</mat-option>
-                    </mat-select>
-                  </mat-form-field> -->
+                  
+                <div class="form-group py-2">
+                  
+                      <input type="date" class="form-control" placeholder="Due Date / Work Scheduled On" name="datevalue" [(ngModel)]="datevalue">
+                  </div>
+
+                  <div class="form-group">
+                      
+                      <input type="number" class="form-control" placeholder="Machine Id" name="mid" [(ngModel)]="mid">
+                  </div>
+                  
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Machine Name" name="mname" [(ngModel)]="mname">
+                  </div>
+                  <select class="custom-select" placeholder="Locations">
+                    <option selected>Locations</option>  
+                    <option value="0" *ngFor="let location of locations">{{location}}</option>
+                      
+                    </select>
+
+                  
+
+
+                  
+                  
+                    
+                  
                 </form>      
             </div>
           </div>
@@ -225,18 +209,19 @@
             <h3>{{data.title}}</h3>
             <p class="lead">{{data.description}}</p>
         
-            <mat-form-field>
-            <mat-select [(ngModel)]="status" class="btn btn-primary">
-              <mat-option value="0" selected>Open</mat-option>
-              <mat-option value="1">In Progress</mat-option>
-              <mat-option value="2">Hold</mat-option>
-              <mat-option value="3">Closed</mat-option>
-            </mat-select>
-          </mat-form-field>
+            <select class="custom-select w-50 my-2">
+                <option selected value="0">Open</option>
+                <option value="1">On Hold</option>
+                <option value="2">On Progress</option>
+                <option value="3">Completed</option>
+              </select>
             <br>
         
-            <p class="text-muted">Due Date:{{data.due | date:'MMMM dd yyyy'}} </p>
-            <p class="text-muted">Created:{{data.createdeon | date:'MMMM dd yyyy'}} </p>
+            <p class="text-muted">
+             <i class="d-block"> Due Date:{{data.due | date:'MMMM dd yyyy'}} </i>
+              <i class="d-block">Created:{{data.createdon | date:'MMMM dd yyyy'}}</i>
+            </p>
+            
         
         
         

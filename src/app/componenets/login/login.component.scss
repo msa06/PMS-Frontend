@@ -12,9 +12,13 @@ body {
 
 .sidenav {
   height: 100%;
-  background-color: #000;
+  background-color:white;
   overflow-x: hidden;
   padding-top: 20px;
+  background-image:url("../../../assets/img/walllogin.jpg");
+  background-position-x: 70%;
+  background-position-y: 50%;
+
 }
 
 
@@ -42,7 +46,7 @@ body {
   }
 
   .sidenav{
-      width: 40%;
+      width: 50%;
       position: fixed;
       z-index: 1;
       top: 0;
@@ -51,6 +55,8 @@ body {
 
   .login-form{
       margin-top: 80%;
+      margin-left: 70%
+      
   }
 
   .register-form{
@@ -70,6 +76,6 @@ body {
 }
 
 .btn-black{
-  background-color: #000 !important;
+  background-color: rgb(12, 12, 12) !important;
   color: #fff;
 }

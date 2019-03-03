@@ -11,6 +11,12 @@ import { Validators, FormControl } from '@angular/forms';
   styleUrls: ['./workorder.component.scss']
 })
 export class WorkorderComponent implements OnInit {
+  //NG BINDING DATA
+  wotitle;
+  desc;
+  priorityvalue:number;
+
+
   ELEMENT_DATA: Workorder[];
   displayedColumns:string[];
   dataSource;
@@ -29,10 +35,9 @@ export class WorkorderComponent implements OnInit {
   categories:string[]=['None','Damage','Electrical','Inspection','Meter','Preventive','Project','Safety','Upgrade'];
   priorities:string[]=['NONE','LOW','MEDIUM','HIGH'];
   status:string[]=["Open","On Hold","On Progress","Complete"]
+  editstatus:string;
 
-  //Variable
-  recursivevalue;
-  priorityvalue:number;
+  
 
 
   @ViewChild(MatSort) sort: MatSort;
@@ -46,23 +51,15 @@ export class WorkorderComponent implements OnInit {
 
   ngOnInit() {
     
-    // this.workorderService.getWorkOrder().subscribe(workorders=>{  
-    //   this.ELEMENT_DATA = workorders
-    //   this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    //   this.dataSource.sort = this.sort;
-    // });
-    this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    this.dataSource.sort = this.sort; 
+    this.workorderService.getWorkOrder().subscribe(workorders=>{  
+      this.ELEMENT_DATA = workorders
+      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      this.dataSource.sort = this.sort;
+    });
+    // this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
+    // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    // this.dataSource.sort = this.sort; 
     
-    this.dateCtrl = new FormControl('',
-    [
-      Validators.required,
-    ]);
-    this.titleCtrl = new FormControl('',[Validators.required,
-      Validators.minLength(3)
-    ]);
-    this.despCtrl = new FormControl('',[Validators.required]);
   }
 
   selectRow(row){
@@ -92,11 +89,11 @@ export class WorkorderComponent implements OnInit {
     
   }
   onSubmit(){
-    this.newWork.title = this.titleCtrl.value;
+    this.newWork.title = this.wotitle;
     this.newWork.id = this.getId();
-    this.newWork.due = new Date('04-3-2019');
-    this.newWork.status = "Open";
-    this.newWork.description = this.despCtrl.value;
+    this.newWork.due = this.datevalue;
+    this.newWork.status = "Open"
+    this.newWork.description = this.desc;
     this.newWork.priority = this.priorities[this.priorityvalue];
     this.newWork.lastupdated = new Date();
     this.newWork.createdon = new Date();
@@ -105,6 +102,10 @@ export class WorkorderComponent implements OnInit {
   getId(){
     this.gid = this.gid++;
     return this.gid;
+  }
+
+  onEdit(data:Workorder){
+    console.log(data);
   }
 
 }

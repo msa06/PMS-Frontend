@@ -4,6 +4,7 @@ import { Machine } from 'src/app/models/Machine';
 import { Compo } from 'src/app/models/Compo';
 import { Subcompo } from 'src/app/models/Subcompo';
 import { MatSort, MatTableDataSource } from '@angular/material';
+import { AssetsService } from 'src/app/services/assets.service';
 
 @Component({
   selector: 'app-assets',
@@ -17,6 +18,7 @@ export class AssetsComponent implements OnInit {
   filtermachine:Machine[]=[];
   filtercomponent:Compo[]=[];
   filtersubcomponent:Subcompo[]=[];
+  selectedMachine:Machine;
   
   machines:Machine[]=[
       {
@@ -140,12 +142,29 @@ export class AssetsComponent implements OnInit {
 
     @ViewChild(MatSort) sort: MatSort;
   constructor(
-    private workorderService:WorkorderService
+    private assetService:AssetsService
     ) {
     
   }
 
   ngOnInit() {
+    this.assetService.getMachine().subscribe(result=>{
+      this.machines = result;
+    });
+    this.assetService.getComponets().subscribe(result=>{
+      this.components = result;
+      console.log(result);
+      
+    },
+    error=>{
+      console.log(error);
+    });
+    this.assetService.getSubComponents().subscribe(result=>{
+      this.subcomponents = result;
+      console.log(result);
+    });
+
+
     this.machinecolumns= [ 'mid', 'mname', 'mperform','mfunc',' mmanufacturer','mpurchase'];
     this.componentscolumns= [ 'compid', 'compname', 'compperform','compfunc',' compmanufacturer','comppurchase'];
     this.subcolumns= [ 'subcompid', 'subcompname', 'subcompperform','subcompfunc',' subcompmanufacturer','subcomppurchase'];
@@ -156,7 +175,7 @@ export class AssetsComponent implements OnInit {
     this.filtermachine = this.machines.filter((machine)=>{
       return machine.mname == this.mselected;
     });
-
+    this.selectedMachine = this.filtermachine[0];
     this.machinedata = new MatTableDataSource(this.filtermachine);
     this.machinedata.sort = this.sort;
     this.cselected = null;

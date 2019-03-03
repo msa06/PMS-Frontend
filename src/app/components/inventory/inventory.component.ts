@@ -74,15 +74,16 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit() {
      this.displayedColumns= ['iid', 'iname', 'iquantity', 'icost'];
-    //  this.inventoryService.getInventory().subscribe(result=>{
-    //    this.ELEMENT_DATA = ;
-    //  },
-    //  error=>{
-
-    //  }
-    //  );
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+     this.inventoryService.getInventory().subscribe(result=>{
+       console.log(result);
+       this.ELEMENT_DATA = result;
+       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
       this.dataSource.sort = this.sort;
+     },
+     error=>{
+        console.log(error)
+     });
+      
     
 
     
