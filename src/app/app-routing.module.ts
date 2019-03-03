@@ -6,6 +6,7 @@ import { RequestModule } from "./request/request.module";
 import { AssetsModule } from "./assets/assets.module";
 import { InventoryModule } from "./inventory/inventory.module";
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,8 @@ const routes: Routes = [
     
   },
   {
-    path:'request',
-    loadChildren:'./request/request.module#RequestModule',
+    path:'products',
+    component:ProductComponent
     
   },
   {

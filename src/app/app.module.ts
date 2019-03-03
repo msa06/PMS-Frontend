@@ -17,10 +17,15 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatMenuModule,
+  MatSelectModule,
+  MatSortModule,
+  MatTableModule
   
-} from '@angular/material';
+} 
+from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
@@ -29,6 +34,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     ProfileComponent,
     SidenavComponent,
     NotificationsComponent,
+    ProductComponent,
     
     
   ],
@@ -42,7 +48,10 @@ import { NotificationsComponent } from './components/notifications/notifications
     MatToolbarModule,
     MatMenuModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTableModule,
   
   ],
   providers: [],
