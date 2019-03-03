@@ -4,8 +4,6 @@ import { MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { WorkorderService } from 'src/app/services/workorder.service';
 import { Validators, FormControl } from '@angular/forms';
-import { WorkorderEditComponent } from 'src/app/workorder/workorder-main/workorder-edit/workorder-edit.component';
-import { workers } from 'cluster';
 
 @Component({
   selector: 'app-workorder',
@@ -39,7 +37,6 @@ export class WorkorderComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   constructor(
-    private datePipe: DatePipe,
     private workorderService:WorkorderService,
     private dialog:MatDialog 
     ) {
@@ -63,7 +60,7 @@ export class WorkorderComponent implements OnInit {
       Validators.required,
     ]);
     this.titleCtrl = new FormControl('',[Validators.required,
-      Validators.minLength(5)
+      Validators.minLength(3)
     ]);
     this.despCtrl = new FormControl('',[Validators.required]);
   }
@@ -74,11 +71,20 @@ export class WorkorderComponent implements OnInit {
   }
 
   addWorkOrder(newWork:Workorder) {
-    this.workorderService.addWorkOrder(newWork).subscribe(workorder=>{  
-      this.ELEMENT_DATA.push(workorder);
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-      this.dataSource.sort = this.sort;
-    });
+    this.workorderService.addWorkOrder(newWork).subscribe(
+      result =>{
+        console.log(result)
+        this.ELEMENT_DATA.push(newWork);
+        this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+        this.dataSource.sort = this.sort;
+      },
+      reject=>{
+        console.log('Not Added');
+      }
+      // workorder=>{  
+      // this.ELEMENT_DATA.push(workorder);
+      // 
+    );
     
   }
   onSubmit(){

@@ -25,17 +25,16 @@ import {
   MatDatepickerModule,
   MatSelectModule,
   MatButtonToggleModule,
+  MatNativeDateModule,
   
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationsComponent } from './components/notifications/notifications.component';
-import { WorkorderModule } from './workorder/workorder.module';
-import { WorkorderMainComponent } from './workorder/workorder-main/workorder-main.component';
 import { WorkorderComponent } from './components/workorder/workorder.component';
 import { RequestComponent } from './components/request/request.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AssetsComponent } from './components/assets/assets.component';
-
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -53,12 +52,15 @@ import { AssetsComponent } from './components/assets/assets.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    WorkorderModule,
     FormsModule,
     HttpClientModule,
 
+
+    
+    //Material
+    MatNativeDateModule,
+    MatMomentDateModule,
     MatSidenavModule,
-  
     MatIconModule,
     MatSortModule,
     MatTableModule,

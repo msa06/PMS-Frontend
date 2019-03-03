@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { WorkorderModule } from './workorder/workorder.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WorkorderComponent } from './components/workorder/workorder.component';
 import { AssetsComponent } from './components/assets/assets.component';
