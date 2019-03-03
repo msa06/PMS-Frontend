@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+.matContainer{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .mat-drawer{
+    min-width: 250px;
+    .mat-button{
+      display:block;
+      width: 100px;
+      text-align: left;
+    }
+  }
+}
+.spacer{
+  flex: 1 1 auto;
+}
+.mat-toolbar-row{
+
+  width: 100%;
+}
+.mat-drawer-container { z-index: inherit; } 
+.mat-drawer-content{ z-index: inherit; }
+
+  

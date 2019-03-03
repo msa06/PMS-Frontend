@@ -76,9 +76,9 @@ export class WorkorderService {
   //   return this.http.get<Workorder[]>(this.API_URL);
   // }
 
-  getWorkOrder(){
-    return this.workOrders;
-  }
+    getWorkOrder(){
+      return this.workOrders;
+    }
 
   addWorkOrder(work:Workorder):Observable<Workorder>{
     return this.http.post<Workorder>(this.API_URL,work,httpOtions);

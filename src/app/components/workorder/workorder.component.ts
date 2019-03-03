@@ -16,7 +16,7 @@ export class WorkorderComponent implements OnInit {
   dataSource;
   workorder:Workorder;
   minDate = new Date(); 
-  datevalue;
+  datevalue:Date;
   workid:number = 120;
   dateCtrl:FormControl;
   titleCtrl:FormControl;
@@ -94,7 +94,7 @@ export class WorkorderComponent implements OnInit {
   onSubmit(){
     this.newWork.title = this.titleCtrl.value;
     this.newWork.id = this.getId();
-    this.newWork.due = new Date();
+    this.newWork.due = new Date('04-3-2019');
     this.newWork.status = "Open";
     this.newWork.description = this.despCtrl.value;
     this.newWork.priority = this.priorities[this.priorityvalue];

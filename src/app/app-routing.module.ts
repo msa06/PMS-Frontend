@@ -7,6 +7,7 @@ import { AssetsComponent } from './components/assets/assets.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { RequestComponent } from './components/request/request.component';
 import { from } from 'rxjs';
+import { ProductComponent } from './components/products/products.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ component:LogComponent
   {
     path:'profile',
     component:ProfileComponent
+  },
+  {
+    path:'products',
+    component:ProductComponent
   },
   {
     path:'',
