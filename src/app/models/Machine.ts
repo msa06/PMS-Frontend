@@ -1,6 +1,6 @@
 export interface Machine {
     
-    mid:string;
+    mid:number;
     mname:string;
     mperform:string;
     mfunc:string;

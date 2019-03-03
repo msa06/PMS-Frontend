@@ -1,6 +1,6 @@
 export interface Inventory {
-    id:number;
-    name:string;
-    quantity:number;
-    cost:number;
+    iid:number;
+    iname:string;
+    iquantity:number;
+    icost:number;
   }

@@ -130,20 +130,24 @@
                     <textarea matInput placeholder="Description" [formControl]="despCtrl" required></textarea>
                     <mat-error align="end" *ngIf="despCtrl.hasError('required')">Description is must!</mat-error>
                   </mat-form-field>
-    
+<!--     
                   <div class="form-group">
                     <button mat-stroked-button (click)="fileInput.click()">Upload Image</button>
                     <input hidden type="file" #fileInput>
-                  </div>
+                  </div> -->
     
                   <mat-form-field>
+                    <input matInput type="date" placeholder="Due Date / Work Scheduled On">
+                  </mat-form-field>
+                  
+                  <!-- <mat-form-field>
                     <input matInput [matDatepicker]="myDatepicker" [min]="minDate" [formControl]="dateCtrl"
                       placeholder="Due Date / Work Scheduled On">
                     <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #myDatepicker></mat-datepicker>
-                    <mat-error align="end" *ngIf="dateCtrl.hasError('required')">A valid date dd/mm/yyyy is required
-                    </mat-error>
-                  </mat-form-field>
+                    <mat-datepicker #myDatepicker></mat-datepicker> -->
+                    <!-- <mat-error align="end" *ngIf="dateCtrl.hasError('required')">A valid date dd/mm/yyyy is required
+                    </mat-error> -->
+                  <!-- </mat-form-field> -->
     
                   <!-- <mat-form-field>
                     <mat-select placeholder="Recurring Schedule" [(value)]="recursivevalue">
@@ -163,7 +167,7 @@
                     <mat-button-toggle value="3">High</mat-button-toggle>
                   </mat-button-toggle-group>
     
-                  <mat-form-field>
+                  <!-- <mat-form-field>
                     <mat-select placeholder="Category">
                       <mat-option value="{{category}}" *ngFor="let category of categories">{{category}}</mat-option>
                     </mat-select>
@@ -173,13 +177,13 @@
                     <mat-select placeholder="Assigned To">
                       <mat-option value="option" *ngFor="let assign of assignies">{{assign}}</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                  </mat-form-field> -->
                   <!-- <mat-form-field>
                     <mat-select placeholder="Additional Workers">
                       <mat-option value="option" *ngFor="let worker of workers">{{worker}}</mat-option>
                     </mat-select>
                   </mat-form-field> -->
-                  <mat-form-field>
+                  <!-- <mat-form-field>
                     <mat-select placeholder="Location">
                       <mat-option value="option" *ngFor="let location of locations">{{location}}</mat-option>
                     </mat-select>
@@ -188,15 +192,12 @@
                     <mat-select placeholder="Assets">
                       <mat-option value="option" *ngFor="let asset of assets">{{assets}}</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                  </mat-form-field> -->
                   <!-- <mat-form-field>
                     <mat-select placeholder="Purchase Order">
                       <mat-option value="option" *ngFor="let order of orders">{{orders}}</mat-option>
                     </mat-select>
                   </mat-form-field> -->
-    
-    
-    
                 </form>      
             </div>
           </div>

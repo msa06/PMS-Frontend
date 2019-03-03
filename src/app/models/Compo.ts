@@ -1,6 +1,6 @@
 export interface Compo {
   
-  compid:string;
+  compid:number;
   compname:string;
   compperform:string;
   compfunc:string;

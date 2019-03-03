@@ -37,6 +37,30 @@ export class WorkorderService {
       priority:'HIGH',
       lastupdated:new Date(2019, 1, 22),
       createdon:new Date()
+    },
+    { due:new Date(),
+      id:104,
+      status:'On Hold',
+      title:'Test Work Order 4',
+      priority:'LOW',
+      lastupdated:new Date(2019, 1, 22),
+      createdon:new Date()
+    },
+    { due:new Date(),
+      id:105,
+      status:'On Progress',
+      title:'Test Work Order 5',
+      priority:'MEDIUM',
+      lastupdated:new Date(2019, 1, 22),
+      createdon:new Date()
+    },
+    { due:new Date(),
+      id:106,
+      status:'On Hold',
+      title:'Test Work Order 3',
+      priority:'HIGH',
+      lastupdated:new Date(2019, 1, 22),
+      createdon:new Date()
     }
   ];
   API_URL = 'http://localhost:7071/workorder';
@@ -47,14 +71,14 @@ export class WorkorderService {
 
   
   //Get Work Order
-  getWorkOrder():Observable<Workorder[]>{
-    console.log('Work Order HTTP CALL');
-    return this.http.get<Workorder[]>(this.API_URL);
-  }
-
-  // getWorkOrder(){
-  //   return this.workOrders;
+  // getWorkOrder():Observable<Workorder[]>{
+  //   console.log('Work Order HTTP CALL');
+  //   return this.http.get<Workorder[]>(this.API_URL);
   // }
+
+  getWorkOrder(){
+    return this.workOrders;
+  }
 
   addWorkOrder(work:Workorder):Observable<Workorder>{
     return this.http.post<Workorder>(this.API_URL,work,httpOtions);

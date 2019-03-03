@@ -2,7 +2,9 @@
 .mat-form-field{
   width: 100%;
 }
-
+.cdk-overlay-container{
+  z-index: 1150;
+} 
 .matContainer{
   position: absolute;
   top:0;
@@ -18,6 +20,7 @@
     }
   }
 }
+
 .spacer{
   flex: 1 1 auto;
 }
@@ -88,6 +91,11 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description-attribution {
   opacity: 0.5;
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1146 !important;
 }
 // .mat-drawer-content { z-index: inherit; }
 // .modal-backdrop {

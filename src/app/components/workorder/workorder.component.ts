@@ -46,14 +46,14 @@ export class WorkorderComponent implements OnInit {
 
   ngOnInit() {
     
-    this.workorderService.getWorkOrder().subscribe(workorders=>{  
-      this.ELEMENT_DATA = workorders
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-      this.dataSource.sort = this.sort;
-    });
-    // this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
-    // this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-    // this.dataSource.sort = this.sort; 
+    // this.workorderService.getWorkOrder().subscribe(workorders=>{  
+    //   this.ELEMENT_DATA = workorders
+    //   this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    //   this.dataSource.sort = this.sort;
+    // });
+    this.ELEMENT_DATA =  this.workorderService.getWorkOrder();
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    this.dataSource.sort = this.sort; 
     
     this.dateCtrl = new FormControl('',
     [
@@ -80,6 +80,10 @@ export class WorkorderComponent implements OnInit {
       },
       reject=>{
         console.log('Not Added');
+        this.ELEMENT_DATA.push(newWork);
+        this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+        this.dataSource.sort = this.sort;
+        
       }
       // workorder=>{  
       // this.ELEMENT_DATA.push(workorder);
@@ -90,6 +94,8 @@ export class WorkorderComponent implements OnInit {
   onSubmit(){
     this.newWork.title = this.titleCtrl.value;
     this.newWork.id = this.getId();
+    this.newWork.due = new Date();
+    this.newWork.status = "Open";
     this.newWork.description = this.despCtrl.value;
     this.newWork.priority = this.priorities[this.priorityvalue];
     this.newWork.lastupdated = new Date();

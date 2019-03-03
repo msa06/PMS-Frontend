@@ -34,7 +34,7 @@
           <div class="container">
             <mat-form-field>
               <mat-select [(value)]="mselected" placeholder="Select Machine">
-                <mat-option *ngFor="let machine of machines" value="{{machine.mid}}" (click)="onMachineselect()">{{machine.mid}}</mat-option>
+                <mat-option *ngFor="let machine of machines" value="{{machine.mname}}" (click)="onMachineselect()">{{machine.mname}}</mat-option>
               </mat-select>
             </mat-form-field>
             
@@ -81,7 +81,7 @@
             
             <mat-form-field *ngIf="mselected">
               <mat-select [(value)]="cselected" placeholder="Select Component">
-                <mat-option *ngFor="let component of components" value="{{component.compid}}" (click)="onComponentselect()">{{component.compid}}</mat-option>
+                <mat-option *ngFor="let component of components" value="{{component.compname}}" (click)="onComponentselect()">{{component.compname}}</mat-option>
               </mat-select>
             </mat-form-field>
             
@@ -125,7 +125,7 @@
             <br>
             <mat-form-field  *ngIf="cselected">
               <mat-select [(value)]="subselected" placeholder="Select SubComponent">
-                <mat-option *ngFor="let subcomponent of subcomponents" value="{{subcomponent.subcompid}}" (click)="onSubselect()">{{subcomponent.subcompid}}</mat-option>
+                <mat-option *ngFor="let subcomponent of subcomponents" value="{{subcomponent.subcompname}}" (click)="onSubselect()">{{subcomponent.subcompname}}</mat-option>
               </mat-select>
             </mat-form-field>
             <br>

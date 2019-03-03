@@ -1,6 +1,6 @@
 export interface Subcompo {
   
-  subcompid:string;
+  subcompid:number;
   subcompname:string;
   subcompperform:string;
   subcompfunc:string;

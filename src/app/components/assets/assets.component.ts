@@ -14,10 +14,13 @@ export class AssetsComponent implements OnInit {
   mselected:string=null;
   cselected:string=null;
   subselected:string=null;
+  filtermachine:Machine[]=[];
+  filtercomponent:Compo[]=[];
+  filtersubcomponent:Subcompo[]=[];
   
   machines:Machine[]=[
       {
-          "mid":'MACHINE1',
+          "mid":1,
           "mname": 'machine one',
           "mperform": 'wt-1920kg',
           "mfunc": 'cutting',
@@ -26,12 +29,13 @@ export class AssetsComponent implements OnInit {
           "compindex":[1,3]
       },
       {
-        "mid":'MACHINE2',
+        "mid":2,
           "mname": 'machine two',
           "mperform": 'wt-1920kg',
           "mfunc": 'cutting',
           "mmanufacturer":'kurid',
-          "mpurchase":'1/2/2019'
+          "mpurchase":'1/2/2019',
+          "compindex":[2,4]
     },
     ]
     machinecolumns:string[];
@@ -40,37 +44,89 @@ export class AssetsComponent implements OnInit {
 
     components:Compo[]=[
       {
-        "compid":'COMPONENT1',
+        "compid":1,
         "compname": 'component one',
         "compperform": 'wt-19kg',
         "compfunc": 'cutting',
         "compmanufacturer":'kurid',
-        "comppurchase":'1/2/2019'
+        "comppurchase":'1/2/2019',
+        "subcompindex":[1,2,4]
       },
       {
-        "compid":'COMPONENT2',
+        "compid":2,
           "compname": 'component two',
           "compperform": 'wt-20kg',
-          "compfunc": 'cutting',
+          "compfunc": 'drilling',
           "compmanufacturer":'kurid',
-          "comppurchase":'1/2/2019'
-    },
+          "comppurchase":'1/2/2019',
+          "subcompindex":[3,5,6]
+      },
+      {
+        "compid":3,
+        "compname": 'component three',
+        "compperform": 'wt-49kg',
+        "compfunc": 'heating',
+        "compmanufacturer":'kurid',
+        "comppurchase":'1/2/2019',
+        "subcompindex":[1,2,3]
+      },
+      {
+        "compid":4,
+          "compname": 'component four',
+          "compperform": 'wt-20kg',
+          "compfunc": 'shaping',
+          "compmanufacturer":'kurid',
+          "comppurchase":'1/2/2019',
+          "subcompindex":[4,5,6]
+      },
     ]
     componentscolumns:string[];
     componentsdata;
 
     subcomponents:Subcompo[]=[
       {
-        "subcompid":'SUBCOMPONENT1',
-        "subcompname": 'subcompnent two',
+        "subcompid":1,
+        "subcompname": 'subcompnent one',
         "subcompperform": 'wt20kg',
         "subcompfunc": 'cutting',
         "subcompmanufacturer":'kurid',
         "subcomppurchase":'26/8/19'
       },
       {
-        "subcompid":'SUBCOMPONENT2',
+        "subcompid":2,
         "subcompname": 'subcomponent two',
+        "subcompperform": 'wt-1920kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'1/2/2019'
+      },
+      {
+        "subcompid":3,
+        "subcompname": 'subcompnent three',
+        "subcompperform": 'wt20kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'26/8/19'
+      },
+      {
+        "subcompid":4,
+        "subcompname": 'subcomponent four',
+        "subcompperform": 'wt-1920kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'1/2/2019'
+      },
+      {
+        "subcompid":5,
+        "subcompname": 'subcompnent five',
+        "subcompperform": 'wt20kg',
+        "subcompfunc": 'cutting',
+        "subcompmanufacturer":'kurid',
+        "subcomppurchase":'26/8/19'
+      },
+      {
+        "subcompid":6,
+        "subcompname": 'subcomponent six',
         "subcompperform": 'wt-1920kg',
         "subcompfunc": 'cutting',
         "subcompmanufacturer":'kurid',
@@ -97,30 +153,50 @@ export class AssetsComponent implements OnInit {
     
   }
   onMachineselect(){
-    const filtermachine:Machine[] = this.machines.filter((machine)=>{
-      return machine.mid == this.mselected;
-    } 
-      );
-    this.machinedata = new MatTableDataSource(filtermachine);
+    this.filtermachine = this.machines.filter((machine)=>{
+      return machine.mname == this.mselected;
+    });
+
+    this.machinedata = new MatTableDataSource(this.filtermachine);
     this.machinedata.sort = this.sort;
     this.cselected = null;
     this.subselected = null;
+    // const comps:number[] = this.filtermachine[0].compindex;
+    // for(let i=0;i<comps.length;i++){
+    //   for(let j=0;j<this.components.length;j++){
+    //     if(this.components[j].compid == comps[i]){
+    //       console.log('Matched');
+    //       this.filtercomponent.push(this.components[j]);
+    //       console.log(this.filtercomponent);
+    //     }
+    //     console.log('Not matched');
+    //   }
+    // }
+    
   }
   onComponentselect(){
-    const filtercomponent:Compo[] = this.components.filter((component)=>{
-      return component.compid == this.cselected;
+    this.filtercomponent = this.components.filter((component)=>{
+      return component.compname == this.cselected;
     } 
       );
-    this.componentsdata = new MatTableDataSource(filtercomponent);
+    this.componentsdata = new MatTableDataSource(this.filtercomponent);
     this.componentsdata.sort = this.sort;
     this.subselected = null;
+    // const subcomps:number[] = this.filtercomponent[0].subcompindex;
+    // for(let i=0;i<subcomps.length;i++){
+    //   for(let j=0;j<this.subcomponents.length;j++){
+    //     if(this.subcomponents[j].subcompid == i){
+    //       this.filtersubcomponent.push(this.subcomponents[j]);
+    //     }
+    //   }
+    // }
   }
   onSubselect(){
-    const filtersubcomponent:Subcompo[] = this.subcomponents.filter((subcomponent)=>{
-      return subcomponent.subcompid == this.subselected;
+     this.filtersubcomponent= this.subcomponents.filter((subcomponent)=>{
+      return subcomponent.subcompname == this.subselected;
     } 
       );
-    this.subcompdata = new MatTableDataSource(filtersubcomponent);
+    this.subcompdata = new MatTableDataSource(this.filtersubcomponent);
     this.subcompdata.sort = this.sort;
   }
 

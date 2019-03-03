@@ -35,6 +35,7 @@ import { RequestComponent } from './components/request/request.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AssetsComponent } from './components/assets/assets.component';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     RequestComponent,
     InventoryComponent,
     AssetsComponent,
+    LogComponent,
     
   ],
   imports: [
