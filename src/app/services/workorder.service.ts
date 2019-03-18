@@ -3,6 +3,7 @@ import { Workorder } from '../models/Workorder';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable,BehaviorSubject } from 'rxjs';
 import { Machine } from '../models/Machine';
+import { Product } from '../models/Product';
 const httpOtions = {
   headers:new HttpHeaders({
     'Content-Type':'application/json'
@@ -67,7 +68,7 @@ export class WorkorderService {
   API_URL = 'http://localhost:7071/workorder';
   API_MAIN_URL = 'http://localhost:7071/mainmachine';
   API_NOTI_URL= 'http://localhost:7071/notification';
-  
+  API_PROD_URL='http://localhost:9097/prod';  
   constructor(
     private http:HttpClient
   ) { }
@@ -82,6 +83,10 @@ export class WorkorderService {
   getMachine():Observable<Machine[]>{
     console.log(' Machine HTTP CALL');
     return this.http.get<Machine[]>(this.API_MAIN_URL);
+  }
+  getProduct():Observable<Product[]>{
+    console.log(' Machine HTTP CALL');
+    return this.http.get<Product[]>(this.API_PROD_URL);
   }
 
     // getWorkOrder(){

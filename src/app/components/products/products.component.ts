@@ -20,12 +20,44 @@ export class ProductComponent implements OnInit {
         "profit": '200',
         "priority":'1'
     },
-    {"mid":'2',
-    "starttime": '10:12AM',
+    {"mid":'1',
+      "starttime": '10:12AM',
     "endtime": '12:52PM',
     "profit": '100',
-    "priority":'2'
+    "priority":'3'
+    },
+    {
+      "mid":'3',
+      "starttime": '12:12AM',
+      "endtime": '10:52PM',
+      "profit": '90',
+      "priority":'1'
   },
+  {"mid":'4',
+  "starttime": '10:12AM',
+  "endtime": '12:52PM',
+  "profit": '150',
+  "priority":'1'
+},
+{
+  "mid":'1',
+  "starttime": '12:12AM',
+  "endtime": '10:52PM',
+  "profit": '150',
+  "priority":'2'
+},
+{"mid":'2',
+"starttime": '10:12AM',
+"endtime": '12:52PM',
+"profit": '100',
+"priority":'2'
+},
+{"mid":'2',
+"starttime": '10:30AM',
+"endtime": '12:52PM',
+"profit": '150',
+"priority":'1'
+},
   ]
   idcolumns:string[];
   iddata;
@@ -38,6 +70,10 @@ export class ProductComponent implements OnInit {
   }
   ngOnInit() {
     this.idcolumns= [ 'mid', 'starttime', 'endtime','profit','priority'];
+    this.workorderService.getProduct().subscribe(result=>{
+      console.log(result);
+      this.ids = result;
+    });
   }
   onIdselect(){
     const filterprocomponent:Product[] = this.ids.filter((id)=>{
