@@ -1,0 +1,19 @@
+
+hr{
+  height: 2px;
+  /* box-shadow: 1px 1px 10px 0px #111; */
+}
+#login-background{
+  height: 100vh;
+  background: url(../../../assets/img/login-bg.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position-x: -400px;
+}
+.container{
+  position: relative;
+  top:100px;
+}
+.form-group{
+  margin-top: 20px;
+}

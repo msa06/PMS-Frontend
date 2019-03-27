@@ -26,6 +26,7 @@ import {
   MatSelectModule,
   MatButtonToggleModule,
   MatNativeDateModule,
+  MatBadgeModule
   
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,8 +37,9 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { AssetsComponent } from './components/assets/assets.component';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ProductComponent } from './components/products/products.component';
-import { LoginComponent } from './componenets/login/login.component';
-import { AMPMComponent } from './componenets/ampm/ampm.component';
+import { LoginComponent } from './components/login/login.component';
+import { AMPMComponent } from './components/ampm/ampm.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { AMPMComponent } from './componenets/ampm/ampm.component';
     ProductComponent,
     LoginComponent,
     AMPMComponent,
+    HeaderComponent,
     
   ],
   imports: [
@@ -79,7 +82,8 @@ import { AMPMComponent } from './componenets/ampm/ampm.component';
     MatButtonToggleModule,
     MatToolbarModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatBadgeModule
   
   ],
   providers: [],

@@ -7,8 +7,8 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { RequestComponent } from './components/request/request.component';
 import { from } from 'rxjs';
 import { ProductComponent } from './components/products/products.component';
-import { LoginComponent } from './componenets/login/login.component';
-import { AMPMComponent } from './componenets/ampm/ampm.component';
+import { LoginComponent } from './components/login/login.component';
+import { AMPMComponent } from './components/ampm/ampm.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const routes: Routes = [

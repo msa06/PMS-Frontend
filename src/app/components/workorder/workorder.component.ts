@@ -4,6 +4,8 @@ import { MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { WorkorderService } from 'src/app/services/workorder.service';
 import { Validators, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workorder',
@@ -43,7 +45,8 @@ export class WorkorderComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private workorderService:WorkorderService,
-    private dialog:MatDialog 
+    private dialog:MatDialog ,
+   
     ) {
       this.displayedColumns= ['due', 'id', 'status', 'title', 'priority', 'assignee', 'location', 'assets', 'lastupdated', 'createdon'];
       
@@ -107,5 +110,7 @@ export class WorkorderComponent implements OnInit {
   onEdit(data:Workorder){
     console.log(data);
   }
+
+  
 
 }
