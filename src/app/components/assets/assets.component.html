@@ -5,7 +5,7 @@
   <div class="sidenav-content">
 
     <app-header></app-header>
-    <div class="container">
+    <div class="container bg-back">
       <mat-form-field>
         <mat-select [(value)]="mselected" placeholder="Select Machine">
           <mat-option *ngFor="let machine of machines" value="{{machine.mname}}" (click)="onMachineselect()">
