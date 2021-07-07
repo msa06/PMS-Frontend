@@ -1,0 +1,25 @@
+<div class="row">
+   <div class="col-6" id="login-background"></div>
+   <div class="col-6">
+     <div class="container mt-5 w-50" >
+         <h2 class="text-center">Login</h2>
+         <hr class="w-25 bg-primary">
+         <h6 class="text-muted text-center">Welcome Back! Login to access Dashboard</h6>
+         <form (ngSubmit)="onLogin()">
+           <div class="form-group">  
+             <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="email">
+           </div>
+           <div class="form-group">
+               <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password">
+           </div>
+           <h6 class="float-left"><a href="#">Forgot to Password?</a></h6>
+           <h6 class="float-right text-primary"><a href="#">New User?</a></h6>
+           <input type="submit" value="Login" class="btn btn-block btn-primary">
+         </form>
+       
+     </div>
+   </div>
+ </div>
+ 
+ 
+ 

@@ -1,4 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%;
+  background-color: #ffffff;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table {
+  width: 100%;
+}
+th{
+  color:white;
+}
+th.mat-sort-header-sorted {
+  color: white;
+}
+
+.table-header{
+  background:rgb(40, 137, 247);
+   
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.matContainer{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .mat-drawer{
+    min-width: 250px;
+    .mat-button{
+      display:block;
+      width: 100px;
+      text-align: left;
+    }
+  }
+}
+.spacer{
+  flex: 1 1 auto;
+}
+.mat-toolbar-row{
+
+  width: 100%;
+}
+.bg-back{
+  height: 100vh;
+  background: url(./assets/img/bridgeshipyard.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
+ 
+

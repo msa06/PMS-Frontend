@@ -1,0 +1,60 @@
+<mat-drawer-container class="matContainer" autoSize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <div class="sidenav-content">
+
+    <app-header></app-header>
+    <div class="container bg-back">
+     <div class="row justify-content-md-center">
+       <div class="col-md-6 col-offset-3 card my-2">
+          <form class="card-body">
+              <div class="form-group">
+                <label >Asset ID</label>
+                <input type="text" class="form-control" placeholder="Asset ID" [(ngModel)]="ampmitem.assetid" name="assetid">
+              </div>
+              <div class="form-group">
+                  <label >Vendors</label>
+                  <input type="text" class="form-control" placeholder="Vendors" [(ngModel)]="ampmitem.vendors" name="vendors">
+              </div>
+              <div class="form-group">
+                  <label>WorkDetails</label>
+                  <textarea type="text" class="form-control" placeholder="Work Details" [(ngModel)]="ampmitem.workdetails" name="workdetails"></textarea>
+              </div>
+              <div class="form-group">
+                  <label >Type of Maintenance</label>
+                  <select id="type" class="form-control" [(ngModel)]="ampmitem.typeofmain" name="mtype">
+                      <option [value]="0">Preventive Maintenance</option>
+                      <option [value]="1">Annual Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label >Component ID</label>
+                    <input type="number" class="form-control" placeholder="Component ID" [(ngModel)]="ampmitem.compid" name="compid">
+                </div>
+                <div class="form-group">
+                    <label >Sub Component ID</label>
+                    <input type="number" class="form-control" placeholder="Sub Component ID" [(ngModel)]="subcompid" name="subcompid">
+                </div>
+                <mat-form-field class="col-md-6">
+                    <input matInput [matDatepicker]="start" placeholder="Start Date"  [(ngModel)]="startdate" name="startdate">
+                    <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                    <mat-datepicker #start></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="col-md-6">
+                    <input matInput [matDatepicker]="end" placeholder="End Date"  [(ngModel)]="enddate" name="enddate">
+                    <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                    <mat-datepicker #end></mat-datepicker>
+                </mat-form-field>
+                <button class="btn btn-primary btn-block" (click)="OnSubmit()">Create</button>
+                
+          </form>
+       </div>
+     </div>
+      
+          
+  
+        
+    </div>
+  </div>
+</mat-drawer-container>

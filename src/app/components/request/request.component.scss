@@ -1,3 +1,4 @@
+
 .matContainer{
   position: absolute;
   top:0;
@@ -13,7 +14,14 @@
     }
   }
 }
-.sidenav-container{
-  display:inline;
+.spacer{
+  flex: 1 1 auto;
 }
+.mat-toolbar-row{
+
+  width: 100%;
+}
+.mat-drawer-container { z-index: inherit; } 
+.mat-drawer-content{ z-index: inherit; }
+
   
